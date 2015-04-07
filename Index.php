@@ -26,7 +26,7 @@
                     var resultat = JSON.parse(res);
                     if(resultat.length >= 1){
                         for(var i=0;i<resultat.length;i++){
-                            $('#affichage').append('<p><span>'+'['+resultat[i]['date']+'] '+resultat[i]['user']+' : </span>'+resultat[i]['message']+'</p>');
+                            $('#affichage').append('<p><span>'+resultat[i]['user']+' : </span>'+resultat[i]['message']+' <span>'+'['+resultat[i]['date']+']'+'</span></p>');
                             if(parseInt(resultat[i]['id']) > id){
                                 id = resultat[i]['id'];
                             }
@@ -46,11 +46,7 @@
                 });
                 $('#message').val('');
                 }
-                    
-
             });
-            
-
             
             
             

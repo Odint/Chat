@@ -36,6 +36,10 @@ and open the template in the editor.
     color:red;
 }
 
+#affichage p span:last-child{
+    float:right;
+}
+
 #message{
     width:950px;
     height:150px;
