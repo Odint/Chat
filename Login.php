@@ -24,7 +24,7 @@ $('#inscriptionF').hide();
 
 $(document).on('click','#inscription',function(){
     $('#loginF').hide();
-    $('#inscriptionF').show('fas');
+    $('#inscriptionF').show('fast');
 });
 
 $(document).on('click','#login',function(){
