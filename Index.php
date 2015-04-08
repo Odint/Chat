@@ -17,19 +17,22 @@ session_start();
         </div>
         <script>
             var id = 0;
-            
+            var insult=[];
+            $.get('js/insult.json',function(r){
+                for(var i=0;i<r['insulte'].length;i++){
+                            insult[i] = r['insulte'][i];
+                }
+            });
             
             
                         
             function verifInsult(string){
-                var message = string;
-                $.get('js/insult.json',function(r){
-                    for(var i=0;i<r['insulte'].length;i++){
-                        if(message.indexOf(r['insulte'][i]) != -1){
-                            message = message.replace(r['insulte'][i],'<span valeur="'+r['insulte'][i]+'" class="censure">[Censuré]</span>');
+                    for(var i=0;i<insult.length;i++){
+                        if(string.indexOf(insult[i]) != -1){
+                           string =  string.replace(insult[i],"<span valeur='"+insult[i]+"' class='censure'>[Censuré]</span>");
                         }
                     }
-                });
+                    return string;
             }
             
             
@@ -43,7 +46,7 @@ session_start();
                             var day = resultat[i]['date'].substr(8,2);
                             var hour = resultat[i]['date'].substr(11);
                             /*resultat[i]['date']*/
-                            $('#affichage').append('<p><span>'+'['+day+'/'+month+'/'+year+' '+hour+'] '+'</span><span>'+resultat[i]['user']+' : </span>'+resultat[i]['message']+' <span>'+resultat[i]['ip']+'</span></p>');
+                            $('#affichage').append('<p><span>'+'['+day+'/'+month+'/'+year+' '+hour+'] '+'</span><span>'+resultat[i]['user']+' : </span>'+verifInsult(resultat[i]['message'])+' <span>'+resultat[i]['ip']+'</span></p>');
                             if(parseInt(resultat[i]['id']) > id){
                                 id = resultat[i]['id'];
                             }
@@ -59,12 +62,22 @@ session_start();
                 if($('#user').val()==''){
                     alert('Veuillez entrer un pseudo');
                 }else{
-                    var message = verifInsult($('#message').val());
-                        
+                    var message = $('#message').val();
                         $.post('server.php',{user:$('#user').val(),message:message},function(res){
                         });
                         $('#message').val('');    
                     }
                 });
+                
+                
+            $(document).on('click','.censure',function(){
+                $(this).text($(this).attr('valeur'));
+                $(this).attr('class','decensure');
+            });
+            
+            $(document).on('click','.decensure',function(){
+                $(this).text('[Censuré]');
+                $(this).attr('class','censure');
+            });
         </script>
 <?php include ('include/footer.html'); ?>
