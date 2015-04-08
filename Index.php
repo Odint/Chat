@@ -35,7 +35,6 @@ session_start();
                         }
                     }
                 }
-                alert(string);
                     return string;
             }
             
