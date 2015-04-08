@@ -27,7 +27,7 @@ session_start();
             
                         
             function verifInsult(string){
-                test = string.split(/[ ,-]/g);
+                var test = string.split(/[ ,-]/g);
                 for(var j=0;j<test.length;j++){
                     for(var i=0;i<insult.length;i++){
                         if(test[j] === insult[i]){
@@ -35,6 +35,7 @@ session_start();
                         }
                     }
                 }
+                alert(string);
                     return string;
             }
             
