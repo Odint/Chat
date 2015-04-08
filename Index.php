@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html>
+<?php include ('include/header.html'); ?>
 
-    <head>
-            <title>Chat 1.0</title>
-            <meta charset="utf-8">
-            <link rel="stylesheet" href="styles/style.css" />
-             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    </head>
-    <body>
-        <div id="chat">
-            <label for="user" id="lusr">User :
-            <input type="text" name="user" id="user" ></label>
-            <div id="affichage">
+        <div id="tchat">
+            <div id="affichage" class="ombre">
                 <p></p>
+                <div id="contact"></div>
             </div>
-
-            <textarea name="message" id="message" ></textarea>
-            <input type="button" id="button" value="Envoie !"
+            <label for="user" id="label"> Pseudo :
+            <input type="text" name="user" id="user" ></label>
+            <div id="interface" class="ombre">
+                <textarea name="message" id="message" ></textarea>
+                <input type="button" id="button" value="Envoyer">
+            </div>            
         </div>
         <script>
             var id = 0;
@@ -26,7 +19,12 @@
                     var resultat = JSON.parse(res);
                     if(resultat.length >= 1){
                         for(var i=0;i<resultat.length;i++){
-                            $('#affichage').append('<p><span>'+resultat[i]['user']+' : </span>'+resultat[i]['message']+' <span>'+'['+resultat[i]['date']+']'+'</span></p>');
+                            var year = resultat[i]['date'].substr(0,4);
+                            var month = resultat[i]['date'].substr(5,2);
+                            var day = resultat[i]['date'].substr(8,2);
+                            var hour = resultat[i]['date'].substr(11);
+                            /*resultat[i]['date']*/
+                            $('#affichage').append('<p><span>'+'['+day+'/'+month+'/'+year+' '+hour+'] '+'</span><span>'+resultat[i]['user']+' : </span>'+resultat[i]['message']+' <span>'+resultat[i]['ip']+'</span></p>');
                             if(parseInt(resultat[i]['id']) > id){
                                 id = resultat[i]['id'];
                             }
@@ -57,7 +55,4 @@
             
             
         </script>
-    </body>
-   
-
-</html>
+<?php include ('include/footer.html'); ?>
