@@ -11,6 +11,8 @@ if(isset($_REQUEST['id'])){
     echo json_encode(selectMessage($_REQUEST['id']));
     if (isset($_SESSION['idUser'])) {
         lastcon ();   
+    } else {
+        header("Location: Login.php");          
     }
     /*lastcon ();   */
 
