@@ -6,7 +6,7 @@ include ('include/header.html');
     <form method="POST" action="backoffice.php">
         <label for="login">Login : </label><input required="required" type="text" name="login" id="login" value="">
         <label for="pass">Password : </label><input required="required" type="password" name="pass" id="pass" value='' >
-        <input name="logon" type="submit" value="Login">
+        <input name="logon" type="submit" value="Login" class="bouton">
     </form>
     <a href="#" id="inscription">Pas encore de compte ?</a>
 </div>
@@ -17,7 +17,7 @@ include ('include/header.html');
         <label for="motpasse">Password : </label><input required="required" type="password" name="motpasse" id="motpasse" value='' ><br>
         <label for="verifpasse">Password : </label><input required="required" type="password" name="verifpasse" id="verifpasse" value='' ><br>
         <!-- <label for="emailI">Email : </label><input required="required" type="email" name="mail" id="mail"> -->
-        <input name="register" type="submit" value="Inscription">
+        <input name="register" type="submit" value="Inscription" class="bouton">
     </form>
     <a href="#" id="login">Deja inscrit ?</a>
 </div>

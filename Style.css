@@ -107,3 +107,96 @@ input[type="button"]{
 #button:active{    
     box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
 }
+
+.form{
+    width: 250px;
+    height:250px;
+    border-radius: 10px;
+    margin :auto auto;
+    text-align: center;
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7),
+            -1px 2px 20px rgba(255, 255, 255, 0.6) inset;
+    background-color: #E9EFF3;
+}
+
+#login{
+    margin-top:25%;
+}
+
+#loginF #pass{
+    margin-top:25px;
+    margin-bottom: 25px;
+}
+
+#loginI{
+    margin-top:25%;
+}
+
+#passI{
+    margin-top:25px;
+    margin-bottom: 25px;
+}
+
+#mail{
+    margin-bottom: 25px;
+}
+
+#nom {
+    margin-top:15%;   
+    margin-bottom: 5px;
+    margin-left: 27px;
+}
+#prenom {
+    margin-top:5px;
+    margin-bottom: 5px;  
+    margin-left: 10px;
+}
+#motpasse {
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+#verifpasse {
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+.floatright {
+    float: right;
+}
+
+#deconn{
+    margin-top: 5px;
+    background-color: #307CAE;
+    color: white;
+    text-decoration: none;
+    border: 1px solid; border-radius: 10px;
+    padding: 2px;
+    margin: 5px;
+    font-family: arial;   font-size: 15px;
+}
+
+#deconn:hover{
+    background-color: #304858;
+    color: #74C0F2;
+}
+
+#deconn:active{    
+    box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+}
+
+.bouton{
+    background-color: #307CAE;
+    color: white;
+    border-radius: 10px;
+    padding: 2px;
+    margin: 5px;
+    font-family: arial;   font-size: 15px;
+}
+
+.bouton:hover{
+    background-color: #304858;
+    color: #74C0F2;
+}
+
+.bouton:active{    
+    box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+}

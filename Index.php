@@ -2,21 +2,40 @@
 include ('include/header.html'); 
 session_start();
 ?>
-
-        <div id="chat">
-            <div id="minicontainer">
-                <label for="user" id="lusr">User :
-                <input type="text" name="user" id="user" value="<?php echo $_SESSION['login'] ?>" readonly></label><a id="deconn" href="Login.php">Se déconnecter</a>
-            </div>
-            <div id="affichage">
+        <div id="tchat">
+            <div id="affichage" class="ombre">
                 <p></p>
+                <div id="contact"></div>
             </div>
-
-            <textarea name="message" id="message" ></textarea>
-            <input type="button" id="button" value="Envoie !"
+            <label for="user" id="label"> User :
+                <input type="text" name="user" id="user" value="<?php echo $_SESSION['login'] ?>" readonly><a id="deconn" href="Login.php">Se déconnecter</a>
+            </label>        
+            <div id="interface" class="ombre">
+                <textarea name="message" id="message" ></textarea>
+                <input type="button" id="button" value="Envoyer">
+            </div>       
         </div>
         <script>
             var id = 0;
+            var insult=[];
+            $.get('js/insult.json',function(r){
+                for(var i=0;i<r['insulte'].length;i++){
+                            insult[i] = r['insulte'][i];
+                }
+            });
+            
+            
+                        
+            function verifInsult(string){
+                    for(var i=0;i<insult.length;i++){
+                        if(string.indexOf(insult[i]) != -1){
+                           string =  string.replace(insult[i],"<span valeur='"+insult[i]+"' class='censure'>[Censuré]</span>");
+                        }
+                    }
+                    return string;
+            }
+            
+            
             function test(){
                 $.post('server.php',{id:id},function(res){
                     var resultat = JSON.parse(res);
@@ -27,7 +46,7 @@ session_start();
                             var day = resultat[i]['date'].substr(8,2);
                             var hour = resultat[i]['date'].substr(11);
                             /*resultat[i]['date']*/
-                            $('#affichage').append('<p><span>'+'['+day+'/'+month+'/'+year+' '+hour+'] '+'</span><span>'+resultat[i]['user']+' : </span>'+resultat[i]['message']+' <span>'+resultat[i]['ip']+'</span></p>');
+                            $('#affichage').append('<p><span>'+'['+day+'/'+month+'/'+year+' '+hour+'] '+'</span><span>'+resultat[i]['user']+' : </span>'+verifInsult(resultat[i]['message'])+' <span>'+resultat[i]['ip']+'</span></p>');
                             if(parseInt(resultat[i]['id']) > id){
                                 id = resultat[i]['id'];
                             }
@@ -43,19 +62,22 @@ session_start();
                 if($('#user').val()==''){
                     alert('Veuillez entrer un pseudo');
                 }else{
-                $.post('server.php',{user:$('#user').val(),message:$('#message').val()},function(res){
+                    var message = $('#message').val();
+                        $.post('server.php',{user:$('#user').val(),message:message},function(res){
+                        });
+                        $('#message').val('');    
+                    }
                 });
-                $('#message').val('');
-                }
+                
+                
+            $(document).on('click','.censure',function(){
+                $(this).text($(this).attr('valeur'));
+                $(this).attr('class','decensure');
             });
             
-            
-            
-            
-            
-            
-            
-            
-            
+            $(document).on('click','.decensure',function(){
+                $(this).text('[Censuré]');
+                $(this).attr('class','censure');
+            });
         </script>
 <?php include ('include/footer.html'); ?>
