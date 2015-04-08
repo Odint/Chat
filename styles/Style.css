@@ -15,9 +15,9 @@ and open the template in the editor.
 }
 
 #lusr{
-    display: block;
+/*    display: block;
     margin: auto auto ;
-    text-align: center;
+    text-align: center;*/
 }
 
 #affichage{
@@ -77,4 +77,31 @@ and open the template in the editor.
 
 #mail{
     margin-bottom: 25px;
+}
+
+#nom {
+    margin-top:15%;   
+    margin-bottom: 5px;
+    margin-left: 27px;
+}
+#prenom {
+    margin-top:5px;
+    margin-bottom: 5px;  
+    margin-left: 10px;
+}
+#motpasse {
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+#verifpasse {
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+.floatright {
+    float: right;
+}
+#minicontainer {
+        display: block;
+    margin: auto auto ;
+    text-align: center;
 }
