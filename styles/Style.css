@@ -47,3 +47,34 @@ and open the template in the editor.
     resize: none;
 }
 
+
+.form{
+    width: 250px;
+    height:250px;
+    border : 1px black solid;
+    border-radius: 6px;
+    margin :auto auto;
+    text-align: center;
+}
+
+#login{
+    margin-top:25%;
+}
+
+#loginF #pass{
+    margin-top:25px;
+    margin-bottom: 25px;
+}
+
+#loginI{
+    margin-top:25%;
+}
+
+#passI{
+    margin-top:25px;
+    margin-bottom: 25px;
+}
+
+#mail{
+    margin-bottom: 25px;
+}
