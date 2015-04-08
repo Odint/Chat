@@ -1,8 +1,13 @@
-<?php include ('include/header.html'); ?>
+<?php 
+include ('include/header.html'); 
+session_start();
+?>
 
         <div id="chat">
-            <label for="user" id="lusr">User :
-            <input type="text" name="user" id="user" ></label>
+            <div id="minicontainer">
+                <label for="user" id="lusr">User :
+                <input type="text" name="user" id="user" value="<?php echo $_SESSION['login'] ?>" readonly></label><a id="deconn" href="Login.php">Se déconnecter</a>
+            </div>
             <div id="affichage">
                 <p></p>
             </div>
