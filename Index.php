@@ -40,19 +40,19 @@
                 if($('#user').val()==''){
                     alert('Veuillez entrer un pseudo');
                 }else{
-                $.post('server.php',{user:$('#user').val(),message:$('#message').val()},function(res){
-                });
-                $('#message').val('');
+                    var message = $('#message').val();
+                    $.get('js/insult.json',function(r){
+                        for(var i=0;i<r['insulte'].length;i++){
+                            if(message.indexOf(r['insulte'][i]) != -1){
+                                message = message.replace(r['insulte'][i],'[Censuré]');
+                                alert(message);
+                            }
+                        }
+                        $.post('server.php',{user:$('#user').val(),message:message},function(res){
+                        });
+                        $('#message').val('');    
+                    });
                 }
             });
-            
-            
-            
-            
-            
-            
-            
-            
-            
         </script>
 <?php include ('include/footer.html'); ?>
