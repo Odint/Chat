@@ -1,16 +1,19 @@
-<?php include ('include/header.html'); ?>
+<?php 
+include ('include/header.html'); 
+session_start();
+?>
 
-        <div id="tchat">
-            <div id="affichage" class="ombre">
-                <p></p>
-                <div id="contact"></div>
+        <div id="chat">
+            <div id="minicontainer">
+                <label for="user" id="lusr">User :
+                <input type="text" name="user" id="user" value="<?php echo $_SESSION['login'] ?>" readonly></label><a id="deconn" href="Login.php">Se déconnecter</a>
             </div>
-            <label for="user" id="label"> Pseudo :
-            <input type="text" name="user" id="user" ></label>
-            <div id="interface" class="ombre">
-                <textarea name="message" id="message" ></textarea>
-                <input type="button" id="button" value="Envoyer">
-            </div>            
+            <div id="affichage">
+                <p></p>
+            </div>
+
+            <textarea name="message" id="message" ></textarea>
+            <input type="button" id="button" value="Envoie !"
         </div>
         <script>
             var id = 0;
@@ -40,19 +43,19 @@
                 if($('#user').val()==''){
                     alert('Veuillez entrer un pseudo');
                 }else{
-                    var message = $('#message').val();
-                    $.get('js/insult.json',function(r){
-                        for(var i=0;i<r['insulte'].length;i++){
-                            if(message.indexOf(r['insulte'][i]) != -1){
-                                message = message.replace(r['insulte'][i],'[Censuré]');
-                                alert(message);
-                            }
-                        }
-                        $.post('server.php',{user:$('#user').val(),message:message},function(res){
-                        });
-                        $('#message').val('');    
-                    });
+                $.post('server.php',{user:$('#user').val(),message:$('#message').val()},function(res){
+                });
+                $('#message').val('');
                 }
             });
+            
+            
+            
+            
+            
+            
+            
+            
+            
         </script>
 <?php include ('include/footer.html'); ?>
