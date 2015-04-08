@@ -5,8 +5,8 @@ session_start();
         <div id="tchat">
             <div id="affichage" class="ombre">
                 <p></p>
-                <div id="contact"></div>
             </div>
+            <div id="contact"></div>
             <label for="user" id="label"> User :
                 <input type="text" name="user" id="user" value="<?php echo $_SESSION['login'] ?>" readonly><a id="deconn" href="Login.php">Se déconnecter</a>
             </label>        
