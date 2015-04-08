@@ -1,0 +1,49 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7 avr. 2015, 11:16:23
+    Author     : Aymane
+*/
+
+
+#chat{
+    width:950px;
+    margin : auto auto;
+}
+
+#lusr{
+    display: block;
+    margin: auto auto ;
+    text-align: center;
+}
+
+#affichage{
+    width: 950px;
+    height: 500px;
+    border: 2px black solid ;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+
+#affichage p{
+    margin-left: 20px;
+}
+
+#affichage p span{
+    color:red;
+}
+
+#affichage p span:last-child{
+    float:right;
+}
+
+#message{
+    width:950px;
+    height:150px;
+    margin-top: 35px;
+    resize: none;
+}
+
