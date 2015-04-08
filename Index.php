@@ -67,11 +67,12 @@ session_start();
                 });
             }
             function affiche_utilisateurs_connectes(){
-                $.post('connected_users.php',{who:id},function(r){
+                $.post('connected_users.php',{who:'everybody'},function(r){
+                    $('#contact').empty();
                     if(r.length >= 1){
                             $('#contact').append(r);
                     }                
-                     setTimeout(test, 0);
+                     setTimeout(affiche_utilisateurs_connectes, 0);
                 });
             }                       
             test();
