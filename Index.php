@@ -62,11 +62,20 @@ session_start();
                             }
                         }
                     }
+
                      setTimeout(test, 0);
                 });
             }
-            
+            function affiche_utilisateurs_connectes(){
+                $.post('connected_users.php',{who:id},function(r){
+                    if(r.length >= 1){
+                            $('#contact').append(r);
+                    }                
+                     setTimeout(test, 0);
+                });
+            }                       
             test();
+            affiche_utilisateurs_connectes();
             
             $(document).on('click','#button',function(){
                 if($('#user').val()==''){
