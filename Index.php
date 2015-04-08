@@ -17,6 +17,22 @@ session_start();
         </div>
         <script>
             var id = 0;
+            
+            
+            
+                        
+            function verifInsult(string){
+                var message = string;
+                $.get('js/insult.json',function(r){
+                    for(var i=0;i<r['insulte'].length;i++){
+                        if(message.indexOf(r['insulte'][i]) != -1){
+                            message = message.replace(r['insulte'][i],'<span valeur="'+r['insulte'][i]+'" class="censure">[Censuré]</span>');
+                        }
+                    }
+                });
+            }
+            
+            
             function test(){
                 $.post('server.php',{id:id},function(res){
                     var resultat = JSON.parse(res);
@@ -43,28 +59,12 @@ session_start();
                 if($('#user').val()==''){
                     alert('Veuillez entrer un pseudo');
                 }else{
-                    var message = $('#message').val();
-                    $.get('js/insult.json',function(r){
-                        for(var i=0;i<r['insulte'].length;i++){
-                            if(message.indexOf(r['insulte'][i]) != -1){
-                                message = message.replace(r['insulte'][i],'[Censuré]');
-                                alert(message);
-                            }
-                        }
+                    var message = verifInsult($('#message').val());
+                        
                         $.post('server.php',{user:$('#user').val(),message:message},function(res){
                         });
                         $('#message').val('');    
-                    });
-                }
-            });
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                    }
+                });
         </script>
 <?php include ('include/footer.html'); ?>
