@@ -8,7 +8,14 @@ session_start();
                 <div id="contact"></div>
             </div>
             <label for="user" id="label"> User :
-                <input type="text" name="user" id="user" value="<?php echo $_SESSION['login'] ?>" readonly><a id="deconn" href="Login.php">Se déconnecter</a>
+                <input type="text" name="user" id="user" value="<?php 
+                if (isset($_SESSION['login'])) {
+                    echo $_SESSION['login'];
+                } else {
+                    echo '';
+                }
+                
+                ?>" readonly><a id="deconn" href="Login.php">Se déconnecter</a>
             </label>        
             <div id="interface" class="ombre">
                 <textarea name="message" id="message" ></textarea>

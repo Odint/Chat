@@ -37,4 +37,25 @@ function newPDO() {
             return $resultat;
         }
 
+        function lastcon () {
+
+            $monpdo2 = newPDO();
+            $req2 = "UPDATE users SET last_con = now() WHERE idUser= :iduser";
+            $selectM2 = $monpdo2->prepare($req2);
+            $idutilisateur = $_SESSION['idUser'];
+            $selectM2->execute(array('iduser' => $idutilisateur));
+            $resultat2 = $selectM2->fetch(PDO::FETCH_ASSOC);   
+
+            }
+
+        function utilisateurs_connectes () {
+            $monpdo = newPDO();
+            $req = "SELECT * FROM users WHERE last_con > now() - INTERVAL 2 MINUTE";
+            $selectM = $monpdo->prepare($req);
+            $selectM->execute(array('id' => $id));   
+            $resultat = $selectM->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultat;            
+        }        
+
 ?>
