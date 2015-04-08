@@ -17,7 +17,12 @@
                     var resultat = JSON.parse(res);
                     if(resultat.length >= 1){
                         for(var i=0;i<resultat.length;i++){
-                            $('#affichage').append('<p><span>'+resultat[i]['user']+' : </span>'+resultat[i]['message']+' <span>'+'['+resultat[i]['date']+']'+'</span></p>');
+                            var year = resultat[i]['date'].substr(0,4);
+                            var month = resultat[i]['date'].substr(5,2);
+                            var day = resultat[i]['date'].substr(8,2);
+                            var hour = resultat[i]['date'].substr(11);
+                            /*resultat[i]['date']*/
+                            $('#affichage').append('<p><span>'+'['+day+'/'+month+'/'+year+' '+hour+'] '+'</span><span>'+resultat[i]['user']+' : </span>'+resultat[i]['message']+' <span>'+resultat[i]['ip']+'</span></p>');
                             if(parseInt(resultat[i]['id']) > id){
                                 id = resultat[i]['id'];
                             }
