@@ -27,11 +27,14 @@ session_start();
             
                         
             function verifInsult(string){
+                test = string.split(/[ ,-]/g);
+                for(var j=0;j<test.length;j++){
                     for(var i=0;i<insult.length;i++){
-                        if(string.indexOf(insult[i]) != -1){
+                        if(test[j] === insult[i]){
                            string =  string.replace(insult[i],"<span valeur='"+insult[i]+"' class='censure'>[Censuré]</span>");
                         }
                     }
+                }
                     return string;
             }
             
