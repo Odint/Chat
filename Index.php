@@ -6,7 +6,14 @@ session_start();
         <div id="chat">
             <div id="minicontainer">
                 <label for="user" id="lusr">User :
-                <input type="text" name="user" id="user" value="<?php echo $_SESSION['login'] ?>" readonly></label><a id="deconn" href="Login.php">Se déconnecter</a>
+                <input type="text" name="user" id="user" value="<?php 
+                if (isset($_SESSION['login'])) {
+                    echo $_SESSION['login'];
+                } else {
+                    echo '';
+                }
+                
+                ?>" readonly></label><a id="deconn" href="Login.php">Se déconnecter</a>
             </div>
             <div id="affichage">
                 <p></p>

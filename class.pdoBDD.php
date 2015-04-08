@@ -25,8 +25,25 @@ function newPDO() {
             $selectM = $monpdo->prepare($req);
             $selectM->execute(array('id' => $id));   
             $resultat = $selectM->fetchAll(PDO::FETCH_ASSOC);
+
             return $resultat;
+
         }
+        function lastcon () {
+
+            $monpdo2 = newPDO();
+            $req2 = "UPDATE users SET last_con = now() WHERE idUser= :iduser";
+            $selectM2 = $monpdo2->prepare($req2);
+            $idutilisateur = $_SESSION['idUser'];
+            $selectM2->execute(array('iduser' => $idutilisateur));
+            $resultat2 = $selectM2->fetch(PDO::FETCH_ASSOC);   
+
+/*            $req2 = "UPDATE users SET last_con = now() WHERE idUser= 31";
+            $selectM2 = $monpdo2->prepare($req2);
+            $selectM2->execute();
+            $resultat2 = $selectM2->fetch(PDO::FETCH_ASSOC);   */
+
+            }
         
         function lastID(){
             $monpdo = newPDO();
