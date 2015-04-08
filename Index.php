@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
+<?php include ('include/header.html'); ?>
 
-    <head>
-            <title>Chat 1.0</title>
-            <meta charset="utf-8">
-            <link rel="stylesheet" href="styles/style.css" />
-             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    </head>
-    <body>
         <div id="chat">
             <label for="user" id="lusr">User :
             <input type="text" name="user" id="user" ></label>
@@ -62,7 +53,4 @@
             
             
         </script>
-    </body>
-   
-
-</html>
+<?php include ('include/footer.html'); ?>
