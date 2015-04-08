@@ -38,11 +38,6 @@ function newPDO() {
             $selectM2->execute(array('iduser' => $idutilisateur));
             $resultat2 = $selectM2->fetch(PDO::FETCH_ASSOC);   
 
-/*            $req2 = "UPDATE users SET last_con = now() WHERE idUser= 31";
-            $selectM2 = $monpdo2->prepare($req2);
-            $selectM2->execute();
-            $resultat2 = $selectM2->fetch(PDO::FETCH_ASSOC);   */
-
             }
         
         function lastID(){
@@ -52,6 +47,15 @@ function newPDO() {
             $lastI->execute(); 
             $resultat = $lastI->fetch(PDO::FETCH_ASSOC);
             return $resultat;
+        }
+        function utilisateurs_connectes () {
+            $monpdo = newPDO();
+            $req = "SELECT * FROM users WHERE last_con > now() - INTERVAL 2 MINUTE";
+            $selectM = $monpdo->prepare($req);
+            $selectM->execute(array('id' => $id));   
+            $resultat = $selectM->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultat;            
         }
 
 ?>

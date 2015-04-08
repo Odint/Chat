@@ -4,6 +4,7 @@ session_start();
 ?>
 
         <div id="chat">
+            <textarea></textarea>
             <div id="minicontainer">
                 <label for="user" id="lusr">User :
                 <input type="text" name="user" id="user" value="<?php 
