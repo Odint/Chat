@@ -8,7 +8,7 @@ if (isset($_REQUEST['who'])) {
     $utilisateurs_connectes ='';
 
     for ($i=0; $i<count($tab) ; $i++) { 
-         $utilisateurs_connectes .= '<span class="utilisateurs">'.$tab[$i]['login'].'</span><br>';
+         $utilisateurs_connectes .= '<span class="utilisateurs" valeur="'.$tab[$i]['login'].'">'.$tab[$i]['login'].'</span><br>';
      } 
     echo ($utilisateurs_connectes);
 }

@@ -70,8 +70,10 @@ if (!isset($_SESSION['login'])) {
             }
             function affiche_utilisateurs_connectes(){
                 $.post('connected_users.php',{who:'everybody'},function(r){
+                    var recup = $("h1").get();
                     $('#contact').empty();
                     if(r.length >= 1){
+                            $('#contact').append(recup);
                             $('#contact').append(r);
                     }                
                      setTimeout(affiche_utilisateurs_connectes, 5000);
@@ -101,6 +103,8 @@ if (!isset($_SESSION['login'])) {
                 $(this).text('[Censuré]');
                 $(this).attr('class','censure');
             });
-            /*$("utilisateurs").*/
+            $(document).on('click','.utilisateurs',function(){
+                $("#message").text($(this).attr('valeur'));
+            });
         </script>
 <?php include ('include/footer.html'); ?>
