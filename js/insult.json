@@ -7,6 +7,13 @@
         "merde",
         "gros con",
         "cul"
-    ]
+    ],
+    "emoticon":{
+        ":angry": "emoticon/icontexto-emoticons-14-016x016.png",
+        ":smile": "emotion/icontexto-emoticons-01-016x016.png",
+        ":sad": "emoticon/icontexto-emoticons-12-016x016.png"
+    }
+        
+    
 }
 

@@ -28,12 +28,14 @@ if (!isset($_SESSION['login'])) {
         <script>
             var id = 0;
             var insult=[];
+            var emoji=[];
             $.get('js/insult.json',function(r){
                 for(var i=0;i<r['insulte'].length;i++){
-                            insult[i] = r['insulte'][i];
+                    insult[i] = r['insulte'][i];
                 }
+                emoji = r['emoticon'];
             });
-                        
+            
             function verifInsult(string){
                 var test = string.split(/[ ,-]/g);
                 for(var j=0;j<test.length;j++){
@@ -42,6 +44,15 @@ if (!isset($_SESSION['login'])) {
                            string =  string.replace(insult[i],"<span valeur='"+insult[i]+"' class='censure'>[Censuré]</span>");
                         }
                     }
+                }
+                    return string;
+            }
+            function verifEmoticon(string){
+                var test = string.split(/[ ,-]/g);
+                for(var j=0;j<test.length;j++){
+                        if(typeof emoji[test[j]] != 'undefined'){
+                           string =  string.replace(test[j],"<img src='"+emoji[test[j]]+"' alt='emoji' >");
+                        }
                 }
                     return string;
             }
@@ -57,7 +68,7 @@ if (!isset($_SESSION['login'])) {
                             var day = resultat[i]['date'].substr(8,2);
                             var hour = resultat[i]['date'].substr(11);
                             /*resultat[i]['date']*/
-                            $('#affichage').append('<p><span>'+'['+day+'/'+month+'/'+year+' '+hour+'] '+'</span><span>'+resultat[i]['user']+' : </span>'+verifInsult(resultat[i]['message'])+' <span>'+resultat[i]['ip']+'</span></p>');
+                            $('#affichage').append('<p><span>'+'['+day+'/'+month+'/'+year+' '+hour+'] '+'</span><span>'+resultat[i]['user']+' : </span>'+verifEmoticon(verifInsult(resultat[i]['message']))+' <span>'+resultat[i]['ip']+'</span></p>');
                             $('#affichage').scrollTop($('#affichage').scrollTop()+40);
                             if(parseInt(resultat[i]['id']) > id){
                                 id = resultat[i]['id'];
