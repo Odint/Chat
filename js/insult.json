@@ -6,7 +6,22 @@
         "fdp",
         "merde",
         "gros con",
-        "cul"
-    ]
+        "cul",
+        "encule",
+        "Enculé"
+    ],
+    "emoticon":{
+        ":angry": "emoticon/icontexto-emoticons-14-016x016.png",
+        ":smile": "emoticon/icontexto-emoticons-01-016x016.png",
+        ":sad": "emoticon/icontexto-emoticons-12-016x016.png",
+        ":wink": "emoticon/icontexto-emoticons-04-016x016.png",
+        ":sunglass": "emoticon/icontexto-emoticons-06-016x016.png",
+        ":glass": "emoticon/icontexto-emoticons-07-016x016.png",
+        ":ho": "emoticon/icontexto-emoticons-10-016x016.png",
+        ":sick": "emoticon/icontexto-emoticons-11-016x016.png",
+        ":tears": "emoticon/icontexto-emoticons-13-016x016.png"
+    }
+        
+    
 }
 

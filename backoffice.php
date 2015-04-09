@@ -50,15 +50,15 @@ elseif (filter_has_var(INPUT_POST, 'register')) {
     if ($tabPost['motpasse'] !== $tabPost['verifpasse']) {
         $_SESSION['motpasse'] = $tabPost['motpasse'];
         $_SESSION['verifpasse'] = $tabPost['verifpasse'];
-        header("Location: login.php"); 
+        header("Location: Login.php"); 
     }
-    header("Location: login.php"); 
+    header("Location: Login.php"); 
     //insert into 
     create_user_filtered_array($tabPost);
   }
 else
 {
-    header("Location: login.php");
+    header("Location: Login.php");
 }
 
 //avant sans le filter_input
@@ -80,7 +80,7 @@ if (isset($_POST['prenom'])) {
 
 if (isset($_POST['motpasse'])|isset($_POST['verifpasse'])) {
     if ($_SESSION['motpasse'] != $_SESSION['verifpasse']) {
-        header("Location: login.php");    
+        header("Location: Login.php");    
     }
 }
 if (isset($_POST['motpasse'])|isset($_POST['verifpasse'])|isset($_POST['nom'])|isset($_POST['prenom'])){

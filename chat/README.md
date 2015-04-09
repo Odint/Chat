@@ -1,2 +1,0 @@
-# Chat
-Chatroulette Js/PHP

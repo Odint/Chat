@@ -59,6 +59,9 @@ and open the template in the editor.
 
 #login{
     margin-top:25%;
+/*    margin-top:25px;
+    margin-left: 27px;*/
+    /*margin-left: 24px;*/
 }
 
 #loginF #pass{
