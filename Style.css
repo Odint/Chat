@@ -64,7 +64,7 @@ header{
 #affichage{
     float: left;
     width: 950px;
-    height: 400px;
+    height: 360px;
     margin-right: 10px;
     border: 2px black solid white;   border-radius: 10px;
     overflow-y: scroll;
