@@ -42,6 +42,10 @@ function check_user_filtered_array ($array) { //avec le filtered array
     $link = connectDB();
     $query = 'SELECT * FROM users WHERE login=\''.$array['login'].'\'';
     $result = mysqli_query($link, $query); 
+    $rowcount=mysqli_num_rows($result);
+    if ($rowcount<1) {
+        echo 'utilisateur n existe pas';
+    }
     while($row = mysqli_fetch_array($result)) {
 
     if (password_verify($array['pass'],$row['password'])) {
