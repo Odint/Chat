@@ -5,7 +5,18 @@ unset($_SESSION['login']);
 unset($_SESSION['idUser']);
 unset($_SESSION['connected']);
 ?>
+
+
+
 <div id="loginF" class="form">
+    <?php
+    if(isset($_SESSION['error'])){
+    ?>
+        <span id="error"><?php echo $_SESSION['error']?></span>
+    <?php
+    unset($_SESSION['error']);
+    }
+    ?>
     <form method="POST" action="backoffice.php">
         <label for="login">Login : </label><input required="required" type="text" name="login" id="login" value="">
         <label for="pass">Password : </label><input required="required" type="password" name="pass" id="pass" value='' >

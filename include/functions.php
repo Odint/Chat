@@ -44,19 +44,18 @@ function check_user_filtered_array ($array) { //avec le filtered array
     $result = mysqli_query($link, $query); 
     $rowcount=mysqli_num_rows($result);
     if ($rowcount<1) {
-        echo 'utilisateur n existe pas';
+        $_SESSION['error'] = "Mauvais Login/Password";
+        header("Location: Login.php");
     }
     while($row = mysqli_fetch_array($result)) {
 
     if (password_verify($array['pass'],$row['password'])) {
-            echo 'pasword ok';
             $_SESSION['connected'] = TRUE ;
             $_SESSION['idUser'] = $row['idUser'] ;
             $_SESSION['login']=$row['login'] ;
             closeBDD($link);
             header("Location: Index.php");           
          } else {
-            echo 'pasword not ok';
             $_SESSION['connected'] = FALSE ;
             closeBDD($link);               
          }
