@@ -5,8 +5,8 @@ session_start();
         <div id="tchat">
             <div id="affichage" class="ombre">
                 <p></p>
-                <div id="contact"></div>
             </div>
+            <div id="contact"><h1>Contacts</h1></div>
             <label for="user" id="label"> User :
                 <input type="text" name="user" id="user" value="<?php 
                 if (isset($_SESSION['login'])) {
