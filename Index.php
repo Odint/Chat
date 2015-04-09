@@ -93,17 +93,22 @@ if (!isset($_SESSION['login'])) {
             test();
             affiche_utilisateurs_connectes();
             
-            $(document).on('click','#button',function(){
-                if($('#user').val()==''){
-                    alert('Veuillez entrer un pseudo');
-                }else{
+            
+            function envoi(){
                     var message = $('#message').val();
                         $.post('server.php',{user:$('#user').val(),message:message},function(res){
                         });
                         $('#message').val('');    
-                    }
-                });
-                
+            }
+            
+            
+            $(document).on('click','#button',envoi);
+            
+            $('#message').keydown(function(event){
+                if ( event.which == 13 && event.shiftKey == true ) {
+                    envoi();
+                }
+            });
                 
             $(document).on('click','.censure',function(){
                 $(this).text($(this).attr('valeur'));
