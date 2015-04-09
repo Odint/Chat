@@ -57,7 +57,9 @@ function check_user_filtered_array ($array) { //avec le filtered array
             header("Location: Index.php");           
          } else {
             $_SESSION['connected'] = FALSE ;
-            closeBDD($link);               
+            closeBDD($link);
+            $_SESSION['error'] = "Mauvais Login/Password";
+            header("Location: Login.php");
          }
     } 
 
