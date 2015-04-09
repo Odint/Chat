@@ -26,26 +26,16 @@ header{
             -1px 2px 20px rgba(255, 255, 255, 0.6) inset; 
 }
 
-#contact{
-    background-color: white;    
-    overflow-y: scroll;
-    overflow-x: auto;
-    height: 290px;
+#contact {
+    position: absolute;
+    background-color: white;
+    height: 490px;
     width: 200px;
+    right: 20px;
+    bottom: -50px;
     border-radius: 10px;
     padding: 5px;
     box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
-}
-
-#contact h1{
-    text-align: center;
-    background-color: #9ACCEC;
-    border-radius: 10px;
-    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7),
-            -1px 2px 20px rgba(255, 255, 255, 0.6) inset;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;   font-size: 25px;
-    color: white;
-    margin: 5px;
 }
 
 #tchat{
@@ -62,10 +52,8 @@ header{
 }
 
 #affichage{
-    float: left;
     width: 950px;
-    height: 400px;
-    margin-right: 10px;
+    height: 500px;
     border: 2px black solid white;   border-radius: 10px;
     overflow-y: scroll;
     overflow-x: auto;

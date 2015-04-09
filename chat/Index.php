@@ -1,9 +1,6 @@
 <?php 
 include ('include/header.html'); 
 session_start();
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php"); 
-}
 ?>
         <div id="tchat">
             <div id="affichage" class="ombre">
@@ -11,14 +8,7 @@ if (!isset($_SESSION['login'])) {
             </div>
             <div id="contact"><h1>Contacts</h1></div>
             <label for="user" id="label"> User :
-                <input type="text" name="user" id="user" value="<?php 
-                if (isset($_SESSION['login'])) {
-                    echo $_SESSION['login'];
-                } else {
-                    echo '';
-                }
-                
-                ?>" readonly><a id="deconn" href="Login.php">Se déconnecter</a>
+                <input type="text" name="user" id="user" value="<?php echo $_SESSION['login'] ?>" readonly><a id="deconn" href="Login.php">Se déconnecter</a>
             </label>        
             <div id="interface" class="ombre">
                 <textarea name="message" id="message" ></textarea>
@@ -37,14 +27,11 @@ if (!isset($_SESSION['login'])) {
             
                         
             function verifInsult(string){
-                var test = string.split(/[ ,-]/g);
-                for(var j=0;j<test.length;j++){
                     for(var i=0;i<insult.length;i++){
-                        if(test[j] === insult[i]){
+                        if(string.indexOf(insult[i]) != -1){
                            string =  string.replace(insult[i],"<span valeur='"+insult[i]+"' class='censure'>[Censuré]</span>");
                         }
                     }
-                }
                     return string;
             }
             
@@ -65,21 +52,11 @@ if (!isset($_SESSION['login'])) {
                             }
                         }
                     }
-
                      setTimeout(test, 0);
                 });
             }
-            function affiche_utilisateurs_connectes(){
-                $.post('connected_users.php',{who:'everybody'},function(r){
-                    $('#contact').empty();
-                    if(r.length >= 1){
-                            $('#contact').append(r);
-                    }                
-                     setTimeout(affiche_utilisateurs_connectes, 5000);
-                });
-            }                       
+            
             test();
-            affiche_utilisateurs_connectes();
             
             $(document).on('click','#button',function(){
                 if($('#user').val()==''){

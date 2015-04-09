@@ -1,9 +1,6 @@
 <?php 
 session_start();
 include ('include/header.html'); 
-unset($_SESSION['login']);
-unset($_SESSION['idUser']);
-unset($_SESSION['connected']);
 ?>
 <div id="loginF" class="form">
     <form method="POST" action="backoffice.php">
