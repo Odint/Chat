@@ -44,7 +44,7 @@ function check_user_filtered_array ($array) { //avec le filtered array
     $result = mysqli_query($link, $query); 
     $rowcount=mysqli_num_rows($result);
     if ($rowcount<1) {
-        echo 'utilisateur n existe pas';
+        echo '<div id="errorlog">l\'utilisateur n\'existe pas</div>';
     }
     while($row = mysqli_fetch_array($result)) {
 

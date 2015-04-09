@@ -1,6 +1,7 @@
 <?php
 session_start();
 include (__DIR__.'/include/functions.php');
+include (__DIR__.'/include/header.html');
 if (filter_has_var(INPUT_POST, 'logon')) {
     /*echo 'login';*/
     $filterPost = array(
@@ -89,5 +90,4 @@ if (isset($_POST['motpasse'])|isset($_POST['verifpasse'])|isset($_POST['nom'])|i
 if (isset($_POST['login'])|isset($_POST['motpasselog'])) {
     //check_user($_POST['login'],$_POST['motpasselog']);
 }
-
 ?>
