@@ -115,7 +115,8 @@ if (!isset($_SESSION['login'])) {
                 $(this).attr('class','censure');
             });
             $(document).on('click','.utilisateurs',function(){
-                $("#message").val('@'+$(this).attr('valeur'));
+                var ancien_message = $("#message").val();
+                $("#message").val(ancien_message+'@'+$(this).attr('valeur'));
             });
         </script>
 <?php include ('include/footer.html'); ?>
