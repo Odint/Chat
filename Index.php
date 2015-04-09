@@ -33,8 +33,6 @@ if (!isset($_SESSION['login'])) {
                             insult[i] = r['insulte'][i];
                 }
             });
-            
-            
                         
             function verifInsult(string){
                 var test = string.split(/[ ,-]/g);
@@ -60,6 +58,7 @@ if (!isset($_SESSION['login'])) {
                             var hour = resultat[i]['date'].substr(11);
                             /*resultat[i]['date']*/
                             $('#affichage').append('<p><span>'+'['+day+'/'+month+'/'+year+' '+hour+'] '+'</span><span>'+resultat[i]['user']+' : </span>'+verifInsult(resultat[i]['message'])+' <span>'+resultat[i]['ip']+'</span></p>');
+                            $('#affichage').scrollTop($('#affichage').scrollTop()+40);
                             if(parseInt(resultat[i]['id']) > id){
                                 id = resultat[i]['id'];
                             }
