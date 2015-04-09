@@ -72,7 +72,7 @@ session_start();
                     if(r.length >= 1){
                             $('#contact').append(r);
                     }                
-                     setTimeout(affiche_utilisateurs_connectes, 0);
+                     setTimeout(affiche_utilisateurs_connectes, 5000);
                 });
             }                       
             test();
