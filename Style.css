@@ -81,7 +81,7 @@ header{
 }
 
 #affichage p span:last-child{
-    margin-left: 15px;
+    float: right;
 }
 
 #user {    
