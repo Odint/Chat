@@ -50,7 +50,8 @@ function newPDO() {
 
         function utilisateurs_connectes () {
             $monpdo = newPDO();
-            $req = "SELECT * FROM users WHERE last_con > now() - INTERVAL 1 MINUTE";
+            /*$req = "SELECT * FROM users WHERE last_con > now() - INTERVAL 1 MINUTE";*/
+            $req = "SELECT * FROM users WHERE last_con > now() - INTERVAL 20 SECOND";
             $selectM = $monpdo->prepare($req);
             $selectM->execute();   
             $resultat = $selectM->fetchAll(PDO::FETCH_ASSOC);

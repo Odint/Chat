@@ -1,6 +1,9 @@
 <?php 
 include ('include/header.html'); 
 session_start();
+if (!isset($_SESSION['login'])) {
+    header("Location: login.php"); 
+}
 ?>
         <div id="tchat">
             <div id="affichage" class="ombre">
