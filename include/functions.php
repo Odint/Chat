@@ -44,7 +44,7 @@ function check_user_filtered_array ($array) { //avec le filtered array
     $result = mysqli_query($link, $query); 
     $rowcount=mysqli_num_rows($result);
     if ($rowcount<1) {
-        $_SESSION['error'] = "Mauvais Login/Password";
+        $_SESSION['error'] = "Mauvais Login";
         header("Location: Login.php");
     }
     while($row = mysqli_fetch_array($result)) {
@@ -58,7 +58,7 @@ function check_user_filtered_array ($array) { //avec le filtered array
          } else {
             $_SESSION['connected'] = FALSE ;
             closeBDD($link);
-            $_SESSION['error'] = "Mauvais Login/Password";
+            $_SESSION['error'] = "Mauvais Password";
             header("Location: Login.php");
          }
     } 
