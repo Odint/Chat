@@ -218,3 +218,6 @@ input[type="button"]{
 #error{
     color:red;
 }
+.utilisateurs {
+    cursor: pointer;
+}
