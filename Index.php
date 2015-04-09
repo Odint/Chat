@@ -116,7 +116,8 @@ if (!isset($_SESSION['login'])) {
             });
             $(document).on('click','.utilisateurs',function(){
                 var ancien_message = $("#message").val();
-                $("#message").val(ancien_message+'@'+$(this).attr('valeur'));
+                $("#message").val(ancien_message+'@'+$(this).attr('valeur')+' ');
+                $("#message").focus();
             });
         </script>
 <?php include ('include/footer.html'); ?>
