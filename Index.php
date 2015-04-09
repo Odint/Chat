@@ -101,5 +101,6 @@ if (!isset($_SESSION['login'])) {
                 $(this).text('[Censuré]');
                 $(this).attr('class','censure');
             });
+            /*$("utilisateurs").*/
         </script>
 <?php include ('include/footer.html'); ?>
