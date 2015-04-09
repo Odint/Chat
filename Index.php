@@ -76,7 +76,7 @@ if (!isset($_SESSION['login'])) {
                         }
                     }
 
-                     setTimeout(test, 0);
+                     setTimeout(test, 500);
                 });
             }
             function affiche_utilisateurs_connectes(){
